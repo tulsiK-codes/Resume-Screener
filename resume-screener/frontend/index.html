@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Screener</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Screener</h1>
+        <form>
+            <label for="file-input">Upload Resume (PDF)</label>
+            <input type="file" id="file-input" accept="application/pdf, .pdf">
+            <label for="jd-tarea">Job Description</label>
+            <textarea name="Job Desc" id="jd-tarea" rows="5" cols="40" placeholder="Paste the job description here...">
+            </textarea>
+            <button id="analyse-btn">Analyse Resume</button>
+            <div id="result-showcase">
+                <!-- <span id="results">Match Score : 50 %</span> -->
+            </div>
+        </form>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
