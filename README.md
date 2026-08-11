@@ -53,8 +53,12 @@ I recently finished my Sprint 1 of the Project requirments where -
 
 
 # Sprint 2
+### Replacing console-only feedback with UI feedback.
+ 
 Successfully did it via setting textcontent of resultShowcase dom element
-```analyseResumeBtn.addEventListener('click', (e) => {
+
+```
+    analyseResumeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         const resume = resumeFileInput.files[0];
         const jd = jobDesc.value;
@@ -82,3 +86,6 @@ But textcontent flushes out nextline and thus I was unable to see it
 Changed to innerHTML with <br>
 ![alt text](image-6.png)
 Finally saw a next line
+
+Some changes
+![alt text](image-7.png)
