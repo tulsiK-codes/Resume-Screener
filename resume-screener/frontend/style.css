@@ -2,15 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 18px;
+    font-family: Nunito;
 }
 body{
     background-color: #121212;
     color: #fff;
-    font-family: sans-serif;
-    
 }
 h1 {
     margin: 0px 0px 10px 0px;
+    font-size: 45px;
 }
 .container {
     min-height: 100vh;
@@ -26,7 +27,7 @@ form {
     padding: 2rem;
     border-radius: 0.5rem;
     gap: 1.2rem;
-    width: min(90vw, 500px);
+    width: min(90vw, 450px);
 }
 /* input[type="file"]{
     background-color: #c8c5c5;
@@ -35,6 +36,7 @@ form {
 
 textarea{
     background-color: #f9f6f6;
+    color: #121212;
     border-radius: 5px;
     outline: none;
     padding: 0.5rem;
@@ -47,15 +49,20 @@ textarea{
     background-color: rgb(24, 42, 181);
     color: #fff;
     border: none;
-    border-radius: 0.2rem;
-    padding: 0.5rem;
+    border-radius: 0.3rem;
+    padding: 1rem ;
     font-weight: bold;
+    font-size: 20px;
 }
 
 #analyse-btn:hover{
     background-color: rgb(38, 58, 208);
 }
-
+@media (hover: hover) {
+    button:hover {
+        background-color: #3700b3;
+    }
+}
 #analyse-btn:active {
     transform: translateY(2px);    
 }
