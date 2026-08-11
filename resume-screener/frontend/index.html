@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Screener</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Resume Screener</h1>
@@ -13,8 +20,7 @@
             <label for="file-input">Upload Resume (PDF)</label>
             <input type="file" id="file-input" accept="application/pdf, .pdf">
             <label for="jd-tarea">Job Description</label>
-            <textarea name="Job Desc" id="jd-tarea" rows="5" cols="40" placeholder="Paste the job description here...">
-            </textarea>
+            <textarea name="Job Desc" id="jd-tarea" rows="5" cols="40" placeholder="Paste the job description here..."></textarea>
             <button id="analyse-btn">Analyse Resume</button>
             <div id="result-showcase">
                 <!-- <span id="results">Match Score : 50 %</span> -->
@@ -25,4 +31,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
