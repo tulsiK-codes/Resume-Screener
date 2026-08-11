@@ -53,3 +53,32 @@ I recently finished my Sprint 1 of the Project requirments where -
 
 
 # Sprint 2
+Successfully did it via setting textcontent of resultShowcase dom element
+```analyseResumeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const resume = resumeFileInput.files[0];
+        const jd = jobDesc.value;
+
+        if(!resume){
+            resultShowcase.textContent = "Please select a resume";
+            return;
+        }
+        if(jd.trim() === ""){
+            resultShowcase.textContent = "Please paste a job description";
+            return;
+        }
+        // resultShowcase.textContent = `Resume selected: ${resume.name}\nJob description received successfully`;
+        resultShowcase.innerHTML = `Resume selected: ${resume.name}<br>Job description received successfully`;
+
+        jobDesc.value = "";
+        resumeFileInput.value = "";
+
+    })
+```
+
+But textcontent flushes out nextline and thus I was unable to see it
+![alt text](<Screenshot 2026-08-11 205300.png>)
+
+Changed to innerHTML with <br>
+![alt text](image-6.png)
+Finally saw a next line
