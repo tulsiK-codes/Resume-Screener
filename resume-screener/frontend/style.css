@@ -53,17 +53,22 @@ textarea{
     padding: 1rem ;
     font-weight: bold;
     font-size: 20px;
+    transform: background-color 0.3s ease;
 }
 
 #analyse-btn:hover{
     background-color: rgb(38, 58, 208);
 }
-@media (hover: hover) {
-    button:hover {
-        background-color: #3700b3;
-    }
-}
+
 #analyse-btn:active {
     transform: translateY(2px);    
 }
 
+#result-showcase {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #1e1e1e;
+    color: #e5e5e5;
+    min-height: 50px;
+}
