@@ -89,3 +89,20 @@ Finally saw a next line
 
 Some changes
 ![alt text](image-7.png)
+
+Analogy to understand working of file reader
+![alt text](image-8.png)
+
+# Real Sprint2 completed😃
+### Prepare for Backend Integration when the button is clicked
+> Key features
+- Create an object containing the data
+    - Display a temporary "Analyzing..." msg
+    - Simulate a backend call using setTimeout() function
+    - Then replace the msg with fake analysis result
+- Here are the screenshots
+### Analysing
+![alt text](<Screenshot 2026-08-13 212016.png>)
+
+### Fake result
+![alt text](<Screenshot 2026-08-13 212026.png>)
