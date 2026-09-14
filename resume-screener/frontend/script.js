@@ -97,7 +97,7 @@ Showing results in result-showcase */
     - Saving to localStorage or saving as a .json file - conversion to Base64 String via FileReader
     */
 
-    analyseResumeBtn.addEventListener('click',(e) => {
+    analyseResumeBtn.addEventListener('click',async(e) => {
         e.preventDefault();
         const resume = resumeFileInput.files[0];
         const jd = jobDesc.value;
@@ -111,17 +111,31 @@ Showing results in result-showcase */
         }
         //Result
         const formData = new FormData();
-        formData.append("resumeFile", resume);
         formData.append("jobDescription", jd);
-        resultShowcase.textContent = 'Analysing Resume...';
-        function showFakeResult() {
-            resultShowcase.innerHTML = `
-            <h3>Analysis Complete</h3>
-            <p><strong>Match Score:</strong> 72%</p>
-            <p>Matched Skills: Java, SQL, Git</p>
-            <p>Missing Skills: Spring Boot, Docker</p>`;
-        }
-        setTimeout(showFakeResult, 3000);
+        formData.append("resumeFile", resume);
+// There's something called CORS - Cross Origin Resource Sharing, which may block the request
+        fetch('http://127.0.0.1:8000/analyze', {
+          method: 'POST',
+          body: formData,
+        })
+        .then(res => res.json())
+        .then(data => {
+          resultShowcase.innerHTML = `${data.jobDescription} <br> ${data.resumeFileName}`;
+        })
+        .catch(error => {
+          console.log(error);
+          
+        })
+
+        // resultShowcase.textContent = 'Analysing Resume...';
+        // function showFakeResult() {
+            // resultShowcase.innerHTML = `
+            // <h3>Analysis Complete</h3>
+            // <p><strong>Match Score:</strong> 72%</p>
+            // <p>Matched Skills: Java, SQL, Git</p>
+            // <p>Missing Skills: Spring Boot, Docker</p>`;
+        // }
+        // setTimeout(showFakeResult, 3000);
         //Becoz we aren't using the id of setTimeout so we can directly write it 
     })
 
