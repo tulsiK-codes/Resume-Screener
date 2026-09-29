@@ -106,3 +106,21 @@ Analogy to understand working of file reader
 
 ### Fake result
 ![alt text](<Screenshot 2026-08-13 212026.png>)
+
+![alt text](image-14.png)
+
+For this code in  skill_extractor
+```
+matched_skills = set()
+
+    text = text.lower()
+
+    for skill in skills:
+        pattern = r"(?<!\w)" + re.escape(skill) + r"(?!\w)"
+
+        if re.search(pattern, text):
+            matched_skills.add(skill)
+
+    return matched_skills
+```
+![alt text](<Screenshot 2026-09-24 231336.png>)
