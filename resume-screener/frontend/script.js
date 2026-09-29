@@ -120,8 +120,10 @@ Showing results in result-showcase */
         })
         .then(res => res.json())
         .then(data => {
-          resultShowcase.innerHTML = `ResumeLen=${data.analysis.resume_length} <br>
-          JD-Len =${data.analysis.job_description_length}<br> ${data.resumeText} <br> ${data.jobDescription} `;
+          resultShowcase.innerHTML = `
+          ${data.analysis.matchPercentage}<br> ${data.analysis.missingSkills}<br> 
+          ${data.resumeText} <br> 
+          ${data.jobDescription} `;
         })
         .catch(error => {
           console.log(error);
