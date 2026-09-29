@@ -4,6 +4,8 @@ from pydantic import BaseModel
  #BaseModel helps in data validation and structures and rules for request/response
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
+from parser import extract_txt_pdf
+from analyzer import analyzer_logic
 
 app = FastAPI()
 
@@ -22,11 +24,20 @@ app.add_middleware(
 #     return {"message": "Resume analysis endpoint working"}
 
 @app.post("/analyze")
-async def analyse_resume(jobDescription: str = Form(...), resumeFile: UploadFile = File(...)): 
-    filename = resumeFile.filename
-    content = await resumeFile.read()
-    return {"jobDescription": jobDescription, 
-            "resumeFileName": filename} 
+async def analyze_resume(
+    jobDescription: str = Form(...),
+    resumeFile: UploadFile = File(...)
+    ): 
+    raw_bytes = await resumeFile.read()
+    resume_text = extract_txt_pdf(raw_bytes)
+    analysis = analyzer_logic(resume_text, jobDescription)
+    # analysis = analyse_resume(resume_text, jobDescription) # By mistake I gave the analyzer.py function and the ABOVE ENDPOINT THE SAME NAME, SO I was accidentally calling the async FastAPI endpoint function itself, not the function from analyzer.py 
+    return {
+        "resumeText" : resume_text,
+        "jobDescription": jobDescription,
+        "analysis": analysis
+        } 
+
 # NO jd.value as it is not javascript
 # Just saying a string does not mean an input field from Form thus we specify here str = Form(...) 
 #  UploadFile is a datatype, 
