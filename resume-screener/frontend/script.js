@@ -120,7 +120,8 @@ Showing results in result-showcase */
         })
         .then(res => res.json())
         .then(data => {
-          resultShowcase.innerHTML = `${data.jobDescription} <br> ${data.resumeFileName}`;
+          resultShowcase.innerHTML = `ResumeLen=${data.analysis.resume_length} <br>
+          JD-Len =${data.analysis.job_description_length}<br> ${data.resumeText} <br> ${data.jobDescription} `;
         })
         .catch(error => {
           console.log(error);
