@@ -121,9 +121,10 @@ Showing results in result-showcase */
         .then(res => res.json())
         .then(data => {
           resultShowcase.innerHTML = `
-          ${data.analysis.matchPercentage}<br> ${data.analysis.missingSkills}<br> 
-          ${data.resumeText} <br> 
-          ${data.jobDescription} `;
+          <p class="match-score"><strong>Match Score:</strong> ${data.analysis.matchPercentage}%</p>
+          <p><strong>Matched Skills: </strong> <span class="matched-skills">${data.analysis.matchedSkills.join(", ")}</span></p>
+          <p ><strong>Missing Skills: </strong><span class="missing-skills">${data.analysis.missingSkills.join(", ")}</span></p> `;
+          // Required skills: Java, JavaScript, HTML, CSS, SQL, Git, React, MySQL, Node.js, MongoDB.
         })
         .catch(error => {
           console.log(error);
