@@ -15,10 +15,12 @@ def analyzer_logic(resume_text, jobDescription):
     score = calculate_match_score(
         matched=matched_skills, required_skills=required_skills
         )
+    # If score gets "None" as return value, the frontend will get null value in JSON. 
+    # Python's None becomes JSON's null
     return {
         "matchPercentage": score,
         "matchedSkills": list(matched_skills),
         "missingSkills": list(missing_skills),
         "resumeSkills": list(resume_skills),
-        "requiredSkills": list(resume_skills)
+        "requiredSkills": list(required_skills)
     }
