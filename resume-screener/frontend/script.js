@@ -120,10 +120,17 @@ Showing results in result-showcase */
         })
         .then(res => res.json())
         .then(data => {
-          resultShowcase.innerHTML = `
-          <p class="match-score"><strong>Match Score:</strong> ${data.analysis.matchPercentage}%</p>
-          <p><strong>Matched Skills: </strong> <span class="matched-skills">${data.analysis.matchedSkills.join(", ")}</span></p>
-          <p ><strong>Missing Skills: </strong><span class="missing-skills">${data.analysis.missingSkills.join(", ")}</span></p> `;
+          if (data.analysis.matchPercentage === null) {
+            resultShowcase.innerHTML = `
+              <p>No match score could be calculated.</p>
+              <p>No recognized skills were found in the job description.</
+            `;
+          } else {
+            resultShowcase.innerHTML = `
+            <p class="match-score"><strong>Match Score:</strong> ${data.analysis.matchPercentage}%</p>
+            <p><strong>Matched Skills: </strong> <span class="matched-skills">${data.analysis.matchedSkills.join(", ")}</span></p>
+            <p ><strong>Missing Skills: </strong><span class="missing-skills">${data.analysis.missingSkills.join(", ")}</span></p> `;
+          }
           // Required skills: Java, JavaScript, HTML, CSS, SQL, Git, React, MySQL, Node.js, MongoDB.
         })
         .catch(error => {
